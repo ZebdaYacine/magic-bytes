@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ZebdaYacine/magic-bytes/magicbytes"
+	"github.com/ZebdaYacine/magic-bytes/magicbytes/magicbytes"
 )
 
 func main() {

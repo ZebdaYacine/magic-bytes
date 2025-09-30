@@ -1,4 +1,4 @@
-package utils
+package magicbytes
 
 import (
 	"encoding/base64"

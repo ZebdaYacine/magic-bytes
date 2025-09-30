@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"magic-bytes/utils"
+
+	"github.com/ZebdaYacine/magic-bytes/utils"
 )
 
 func main() {

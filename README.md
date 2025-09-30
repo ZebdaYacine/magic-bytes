@@ -18,8 +18,3 @@ go run main.go
 
 This will create a file named `output.jpg` in the project's root directory.
 
-## Dependencies
-
-This project uses the following external Go module:
-
-- `github.com/h2non/filetype`: A small and dependency-free Go package to infer file types checking the magic numbers signature.

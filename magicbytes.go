@@ -1,4 +1,4 @@
-package magicbytes
+package main
 
 import (
 	"encoding/base64"

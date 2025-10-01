@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"encoding/base64"
@@ -80,7 +80,4 @@ func SaveBase64ToFile(base64Str, destPath string) (*string, error) {
 	}
 
 	return &destPath, nil
-}
-
-func main() {
 }

@@ -54,19 +54,19 @@ func detectFileExtension(data []byte) string {
 	return "bin"
 }
 
-func SaveBase64ToFile(base64Str, destPath string) error {
+func SaveBase64ToFile(base64Str, destPath string) (*string, error) {
 
 	if strings.HasPrefix(base64Str, "data:") {
 		parts := strings.SplitN(base64Str, ",", 2)
 		if len(parts) != 2 {
-			return errors.New("invalid base64 data URI")
+			return nil, errors.New("invalid base64 data URI")
 		}
 		base64Str = parts[1]
 	}
 
 	data, err := base64.StdEncoding.DecodeString(base64Str)
 	if err != nil {
-		return fmt.Errorf("failed to decode base64: %w", err)
+		return nil, fmt.Errorf("failed to decode base64: %w", err)
 	}
 
 	ext := detectFileExtension(data)
@@ -76,8 +76,8 @@ func SaveBase64ToFile(base64Str, destPath string) error {
 	}
 
 	if err := os.WriteFile(destPath, data, 0644); err != nil {
-		return fmt.Errorf("failed to save file: %w", err)
+		return nil, fmt.Errorf("failed to save file: %w", err)
 	}
 
-	return nil
+	return &destPath, nil
 }

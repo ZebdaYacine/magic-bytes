@@ -1,4 +1,4 @@
-package main
+package magic
 
 import (
 	"encoding/base64"
@@ -12,8 +12,8 @@ import (
 // File signature struct
 type fileSignature struct {
 	Magic  []byte
-	Offset int    // position in the file where magic occurs
-	Ext    string // extension
+	Offset int    
+	Ext    string 
 }
 
 // Known signatures (images, docs, audio, video, archives)
@@ -24,19 +24,19 @@ var signatures = []fileSignature{
 	{[]byte("GIF87a"), 0, "gif"},
 	{[]byte("GIF89a"), 0, "gif"},
 	{[]byte("BM"), 0, "bmp"},
-	{[]byte("RIFF"), 0, "webp"}, // needs extra check, simplified
+	{[]byte("RIFF"), 0, "webp"},
 	// Documents
 	{[]byte("%PDF"), 0, "pdf"},
-	{[]byte("PK"), 0, "zip"}, // docx, xlsx, pptx also
+	{[]byte("PK"), 0, "zip"}, 
 	{[]byte("Rar!"), 0, "rar"},
 	// Audio
 	{[]byte("ID3"), 0, "mp3"},
 	{[]byte{0xFF, 0xFB}, 0, "mp3"},
 	{[]byte("fLaC"), 0, "flac"},
 	{[]byte("OggS"), 0, "ogg"},
-	{[]byte("RIFF"), 0, "wav"}, // RIFF + WAVE
+	{[]byte("RIFF"), 0, "wav"}, 
 	// Video
-	{[]byte("RIFF"), 0, "avi"}, // RIFF + AVI
+	{[]byte("RIFF"), 0, "avi"}, 
 	{[]byte{0x00, 0x00, 0x00, 0x18}, 0, "mp4"},
 	{[]byte("ftyp"), 4, "mp4"},
 	{[]byte{0x1A, 0x45, 0xDF, 0xA3}, 0, "mkv"},

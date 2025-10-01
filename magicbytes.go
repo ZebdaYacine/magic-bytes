@@ -81,3 +81,6 @@ func SaveBase64ToFile(base64Str, destPath string) (*string, error) {
 
 	return &destPath, nil
 }
+
+func main() {
+}
